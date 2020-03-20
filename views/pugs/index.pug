@@ -1,0 +1,10 @@
+h1 Pug
+form(action="pugs/search", method="GET")
+    input(type="text", name="q")
+    button Search
+ul
+  each val in pugs
+    li
+        span= val.name
+        span &nbsp;
+        a(href="/pugs/" + val.id) View
