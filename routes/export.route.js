@@ -48,7 +48,8 @@ const zeroFill = (n, p, c) => {
 };
 
 router.get("/read_file", (req, res) => {
-    const trackingLogs = jsonFiles.filter(file => new Date(file.time.seconds * 1000).getMonth() + 1 === 9);
+    //  new Date(item.time.seconds * 1000).getMonth() + 1 === 10
+    const trackingLogs = jsonFiles.filter(item => item.user !== "anonymous");
 
     const listUserFirstOpen = Object.entries(
         trackingLogs.filter((trackingItem) => trackingItem.event === "first_open")
@@ -93,6 +94,20 @@ router.get("/read_file", (req, res) => {
             return r;
         }, {})
     ).map((item, index) => ({
+        name: item[0],
+        length: item[1].length
+    }))
+
+    const listUserView = Object.entries(
+        trackingLogs.reduce((r, a) => {
+            r[a.user.EMP_NM] = [
+                ...(r[a.user.EMP_NM] ||
+                    []),
+                a,
+            ];
+            return r;
+        }, {})
+    ).map((item, index) => ({
         name: `${item[0]} - ${item[1].length}`,
     }))
 
@@ -104,6 +119,7 @@ router.get("/read_file", (req, res) => {
         listUserNameLogin,
         totalUserLogin: listUserNameLogin.length,
         listScreenView,
+        listUserView
     })
 });
 

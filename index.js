@@ -7,6 +7,7 @@ const pdfRoute = require("./routes/pdf.route");
 const metadataRoute = require("./routes/metadata.route");
 const uploadRoute = require("./routes/upload.route");
 const exportRoute = require("./routes/export.route");
+const inviteUserRoute = require("./routes/inviteUser.route");
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use("/pdf", pdfRoute);
 app.use("/metadata", metadataRoute);
 app.use("/upload", uploadRoute);
 app.use("/export", exportRoute);
+app.use("/invite", inviteUserRoute);
 
 
 app.listen(3000);
