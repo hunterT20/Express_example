@@ -10,7 +10,7 @@
   "author": "Thanh Tuan",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "exceljs": "^4.2.0",
     "exiftool-vendored": "^12.1.0",
     "express": "^4.17.1",
