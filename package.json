@@ -19,7 +19,7 @@
     "node-fetch": "^2.6.0",
     "pdf-lib": "^1.10.0",
     "piexifjs": "^1.0.6",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "shortid": "^2.2.15"
   },
   "devDependencies": {
